@@ -1,0 +1,54 @@
+footer {
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.carousel-inner img {
+  height: 80vh;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 2;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+}
+
+.navbar {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: white;
+  color: #333;
+  text-align: center;
+}
+
+.carousel-caption {
+  z-index: 3;
+}
