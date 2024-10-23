@@ -53,48 +53,64 @@
     </header>
 
     <main>
-      <div class="row">
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Boat on Calm Water"
-          />
-
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Wintry Mountain Landscape"
-          />
-        </div>
-
-        <div class="col-lg-4 mb-4 mb-lg-0">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Mountains in the Clouds"
-          />
-
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Boat on Calm Water"
-          />
-        </div>
-
-        <div class="col-lg-4 mb-4 mb-lg-0">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Waves at Sea"
-          />
-
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-            class="w-100 shadow-1-strong rounded mb-4"
-            alt="Yosemite National Park"
-          />
-        </div>
+      <div class="container">
+        <form action="feedback.php" method="POST">
+          <div class="mb-3">
+            <label for="" class="form-label">Nama</label>
+            <input
+              type="text"
+              class="form-control"
+              name="nama"
+              id="nama"
+              placeholder="Masukan nama"
+              aria-describedby="titleHelp"
+            />
+          </div>
+          <!-- <div class="sm-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input
+              type="text"
+              name="nama"
+              id="nama"
+              placeholder="Masukan nama"
+            />
+          </div> -->
+          <div class="sm-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Feedback</label
+            >
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+          <div>
+            <label for="jk">Jenis Kelamin</label>
+            <input type="text" name="jk" id="jk" placeholder="Masukan JK" />
+          </div>
+          <div>
+            <label for="alamat">Alamat</label>
+            <input
+              type="text"
+              name="alamat"
+              id="alamat"
+              placeholder="Masukan alamat"
+            />
+          </div>
+          <div>
+            <label for="hobi">Hobi</label>
+            <input
+              type="text"
+              name="hobi"
+              id="hobi"
+              placeholder="Masukan hobi"
+            />
+          </div>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </main>
 
