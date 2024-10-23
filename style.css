@@ -5,13 +5,13 @@ html {
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
 }
 
 main {
   position: relative;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   flex-grow: 1;
 }
 
@@ -23,13 +23,19 @@ main {
 }
 
 .carousel {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   bottom: 2;
   width: 100%;
   height: 80vh;
+  margin-bottom: 50px;
   z-index: 1;
+}
+
+.jumbotron {
+  height: auto;
+  padding: 3rem 1rem;
 }
 
 .navbar {
@@ -38,17 +44,27 @@ main {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.container {
+  position: relative;
+  height: 80vh;
+  top: 0;
+  left: 0;
+  bottom: 1;
+  z-index: 3;
+}
+
 footer {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   background-color: white;
   color: #333;
-  text-align: center;
+  margin-left: 20px;
+  /* text-align: center; */
 }
 
 /* css style for card  */
 .card_container {
-  margin-top: 100px;
+  margin-top: 200px;
   max-width: 2000px;
   width: 100%;
   height: 600px;
