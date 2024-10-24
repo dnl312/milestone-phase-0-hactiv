@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,63 +64,43 @@
     </header>
 
     <main>
-      <div class="jumbotron jumbotron-fluid" style="height: 10vh">
-        <div class="container">
-          <h1 class="display-1">Kivotos School</h1>
-          <p class="lead">
-            This is a modified jumbotron that occupies the entire horizontal
-            space of its parent.
-          </p>
-        </div>
-      </div>
+      <video autoplay muted loop id="myVideo">
+        <source src="images/feedback-video-bg.mp4" type="video/mp4" />
+      </video>
+      <!-- <img src="" class="background" /> -->
+      <div class="form col-md-6" text-align="center">
 
-      <div class="container">
-        <div class="card_container">
-          <div class="expandable-card">
-            <img
-              src="images/schools/abydos.jpg"
-              onmouseover="this.src='images/schools/01.png';"
-              onmouseout="this.src='images/schools/abydos.jpg';"
-              alt=""
+      <?php include("result.php");?>
+
+      <form action="feedback.php" method="POST">
+          <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Masukan email"
+              aria-describedby="titleHelp"
+              required
             />
           </div>
 
-          <div class="expandable-card">
-            <img
-              src="images/schools/gehenna.jpg"
-              onmouseover="this.src='images/schools/02.png';"
-              onmouseout="this.src='images/schools/gehenna.jpg';"
-              alt=""
-            />
+          <div class="sm-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Feedback</label
+            >
+            <textarea
+              class="form-control"
+              name="message"
+              id="message"
+              rows="3"
+            ></textarea>
           </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/millenium.jpg"
-              onmouseover="this.src='images/schools/03.png';"
-              onmouseout="this.src='images/schools/millenium.jpg';"
-              alt=""
-            />
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/trinity.jpg"
-              onmouseover="this.src='images/schools/04.png';"
-              onmouseout="this.src='images/schools/trinity.jpg';"
-              alt=""
-            />
-          </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/arius-edit.jpg"
-              onmouseover="this.src='images/schools/106690763_p0_master1200.jpg';"
-              onmouseout="this.src='images/schools/arius-edit.jpg';"
-              alt=""
-            />
-          </div>
-        </div>
+        </form>
       </div>
     </main>
 

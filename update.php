@@ -1,3 +1,8 @@
+<?php
+session_start();
+require "koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,7 +50,7 @@
               <a class="nav-link" href="gallery.html">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.html">Feedback</a>
+              <a class="nav-link" href="form.php">Feedback</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -64,35 +69,59 @@
       </video>
       <!-- <img src="" class="background" /> -->
       <div class="form col-md-6" text-align="center">
-        <form action="feedback.php" method="POST">
-          <div class="mb-3">
-            <label for="" class="form-label">Email</label>
-            <input
-              type="text"
-              class="form-control"
-              name="email"
-              id="email"
-              placeholder="Masukan email"
-              aria-describedby="titleHelp"
-              required
-            />
-          </div>
 
-          <div class="sm-3">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              >Feedback</label
-            >
-            <textarea
-              class="form-control"
-              name="message"
-              id="message"
-              rows="3"
-            ></textarea>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+        <?php
+            if(isset($_GET['id'])){
+                $feedback_id =$_GET['id'];
+                $query="select * from feedback where id='$feedback_id'";
+                $result = mysqli_query($koneksi, $query);
+
+                if(mysqli_num_rows($result)){
+                    $feedback = mysqli_fetch_array($result);
+                    //print_r($feedback);
+                    
+                    ?>
+                    <form action="feedback.php" method="POST">
+                        <h2>Update Feedback</h2>
+                        <input type="hidden" name="feedback_id"  value="<?=$feedback['id'];?>">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            name="email"
+                            id="email"
+                            placeholder="Masukan email"
+                            aria-describedby="titleHelp"
+                            value="<?=$feedback['email'];?>"
+                            readonly
+                            required
+                            />
+                        </div>
+
+                        <div class="sm-3">
+                            <label for="" class="form-label"
+                            >Feedback</label
+                            >
+                            <textarea
+                            class="form-control"
+                            name="message"
+                            id="message"
+                            rows="3"
+                            ><?=$feedback['message'];?></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" name="update-feedback" class="btn btn-primary">Update</button>
+                        </div>
+                        </form>
+                <?php
+                    
+                }else{
+
+                }
+            }
+        ?>
+        
       </div>
     </main>
 

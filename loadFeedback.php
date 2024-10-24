@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +11,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Blue Archive</title>
   </head>
@@ -59,64 +64,28 @@
     </header>
 
     <main>
-      <div class="jumbotron jumbotron-fluid" style="height: 10vh">
-        <div class="container">
-          <h1 class="display-1">Kivotos School</h1>
-          <p class="lead">
-            This is a modified jumbotron that occupies the entire horizontal
-            space of its parent.
-          </p>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="card_container">
-          <div class="expandable-card">
-            <img
-              src="images/schools/abydos.jpg"
-              onmouseover="this.src='images/schools/01.png';"
-              onmouseout="this.src='images/schools/abydos.jpg';"
-              alt=""
-            />
-          </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/gehenna.jpg"
-              onmouseover="this.src='images/schools/02.png';"
-              onmouseout="this.src='images/schools/gehenna.jpg';"
-              alt=""
-            />
-          </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/millenium.jpg"
-              onmouseover="this.src='images/schools/03.png';"
-              onmouseout="this.src='images/schools/millenium.jpg';"
-              alt=""
-            />
-          </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/trinity.jpg"
-              onmouseover="this.src='images/schools/04.png';"
-              onmouseout="this.src='images/schools/trinity.jpg';"
-              alt=""
-            />
-          </div>
-
-          <div class="expandable-card">
-            <img
-              src="images/schools/arius-edit.jpg"
-              onmouseover="this.src='images/schools/106690763_p0_master1200.jpg';"
-              onmouseout="this.src='images/schools/arius-edit.jpg';"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
+      <div class="row">
+        <div class="col-sm-6" style="margin-left: auto; margin-right: auto;">
+        <?php include("result.php");?>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Event #</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Created date</th>
+                    </tr>
+                </thead>
+                <tbody id="dynamic_data">
+                </tbody>
+            </table>
+           
+            <button type="button" class="btn btn-success" onclick="display_data()">Load more</button>
+            <input type="hidden" id="rowcount" name="rowcount" value="0">
+        </div><!-- end col -->
+        </form>
+    </div><!--  end row -->
+</div>
     </main>
 
     <footer
@@ -167,6 +136,33 @@
         </li>
       </ul>
     </footer>
+
+    <script type="text/javascript">
+        display_data();
+        function display_data() {
+            var rowcount =  $("#rowcount").val();
+            $.ajax({
+                url: "display_data.php",
+                type: "POST",
+                data: {
+                    rowcount: rowcount
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status == true) {
+                        $("#rowcount").val(response.rowcount);
+                        $('#dynamic_data').append(response.data);
+                    } else {
+                        alert(response.msg);
+                    }
+                },
+                error: function(xhr, status) {
+                    console.log('ajax error = ' + xhr.statusText);
+                    alert(response.msg);
+                }
+            });
+        }
+    </script>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
