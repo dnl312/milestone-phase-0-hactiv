@@ -2,12 +2,10 @@
 include "koneksi.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $nama = $_POST['nama'];
-    $jk = $_POST['jk'];
-    $alamat = $_POST['alamat'];
-    $hobi = $_POST['hobi'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    $query = "INSERT INTO MS_USER (NAMA, JENIS_KELAMIN, ALAMAT, HOBBY) VALUES('$nama','$jk','$alamat','$hobi')";
+    $query = "INSERT INTO FEEDBACK (EMAIL, MESSAGE) VALUES('$email','$message')";
     
     if($koneksi->query($query)){
         header("Location: form.html");

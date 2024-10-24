@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
   const lastTime = localStorage.getItem("audioTime");
   if (lastTime) {
     audioPlayer.currentTime = lastTime;
-    audioPlayer.volume = 0.4;
+    audioPlayer.volume = 0.2;
     audioPlayer.play();
   }
 });

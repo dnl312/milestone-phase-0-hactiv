@@ -53,62 +53,38 @@
     </header>
 
     <main>
-      <div class="container">
+      <video autoplay muted loop id="myVideo">
+        <source src="images/feedback-video-bg.mp4" type="video/mp4" />
+      </video>
+      <!-- <img src="" class="background" /> -->
+      <div class="form col-md-6" text-align="center">
         <form action="feedback.php" method="POST">
           <div class="mb-3">
-            <label for="" class="form-label">Nama</label>
+            <label for="" class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
-              name="nama"
-              id="nama"
-              placeholder="Masukan nama"
+              name="email"
+              id="email"
+              placeholder="Masukan email"
               aria-describedby="titleHelp"
+              required
             />
           </div>
-          <!-- <div class="sm-3">
-            <label for="nama" class="form-label">Nama</label>
-            <input
-              type="text"
-              name="nama"
-              id="nama"
-              placeholder="Masukan nama"
-            />
-          </div> -->
+
           <div class="sm-3">
             <label for="exampleFormControlTextarea1" class="form-label"
               >Feedback</label
             >
             <textarea
               class="form-control"
-              id="exampleFormControlTextarea1"
+              name="message"
+              id="message"
               rows="3"
             ></textarea>
           </div>
           <div>
-            <label for="jk">Jenis Kelamin</label>
-            <input type="text" name="jk" id="jk" placeholder="Masukan JK" />
-          </div>
-          <div>
-            <label for="alamat">Alamat</label>
-            <input
-              type="text"
-              name="alamat"
-              id="alamat"
-              placeholder="Masukan alamat"
-            />
-          </div>
-          <div>
-            <label for="hobi">Hobi</label>
-            <input
-              type="text"
-              name="hobi"
-              id="hobi"
-              placeholder="Masukan hobi"
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>
