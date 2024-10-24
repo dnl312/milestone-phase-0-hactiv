@@ -9,6 +9,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if($koneksi->query($query)){
         header("Location: form.html");
+        echo '<script language="javascript">';
+        echo 'alert("message successfully sent")';
+        echo '</script>';
         exit();
     }else{
         echo "gagal" . mysqli_error($koneksi);

@@ -135,6 +135,7 @@ button {
   width: 100%;
 }
 
+/* about page styling */
 .leftAbout {
   max-width: 500px;
   width: 100%;
@@ -167,3 +168,20 @@ button {
 video {
   object-fit: cover;
 }
+/* end about styling */
+
+/* style for contact */
+.rightContact {
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  flex: 1;
+  background-color: #eeeeeeb9;
+  border-radius: 10px;
+  right: -200px;
+  top: 50%;
+  height: 600px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+/* end style for contact */
