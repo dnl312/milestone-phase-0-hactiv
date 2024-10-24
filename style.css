@@ -134,3 +134,36 @@ button {
   left: 0;
   width: 100%;
 }
+
+.leftAbout {
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  flex: 1;
+  background-color: #eeeeeeb9;
+  border-radius: 10px;
+  left: 25%;
+  top: 50%;
+  height: 600px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.rightImgAbout {
+  max-width: 1080px;
+  width: 100%;
+  padding: 20px;
+  background-color: #eeeeeeb9;
+  border-radius: 10px;
+  right: -500px;
+  top: 50%;
+  flex: 3;
+  height: 600px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.rightImgAbout,
+video {
+  object-fit: cover;
+}
