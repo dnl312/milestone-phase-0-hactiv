@@ -1,8 +1,3 @@
-<?php
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +45,7 @@ session_start();
               <a class="nav-link" href="gallery.html">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.php">Feedback</a>
+              <a class="nav-link" href="form.html">Feedback</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -69,10 +64,7 @@ session_start();
       </video>
       <!-- <img src="" class="background" /> -->
       <div class="form col-md-6" text-align="center">
-
-      <?php include("result.php");?>
-
-      <form action="feedback.php" method="POST">
+        <form action="feedback.php" method="POST">
           <div class="mb-3">
             <label for="" class="form-label">Email</label>
             <input

@@ -50,7 +50,7 @@ require "koneksi.php";
               <a class="nav-link" href="gallery.html">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="form.php">Feedback</a>
+              <a class="nav-link" href="form.html">Feedback</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
